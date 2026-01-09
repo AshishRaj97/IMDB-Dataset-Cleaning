@@ -17,8 +17,8 @@ IMDB-Dataset-Cleaning/
 │   └── messy_IMDB_dataset.csv           # Original messy dataset
 │
 ├── cleaned_data/
-│   ├── Cleaned-csv.csv             # Cleaned manually using Excel
-│   └── Cleaned-excel.xlsx            # Cleaned programmatically using Pandas
+│   ├── Cleaned-csv.csv             # Cleaned manually using Pandas
+│   └── Cleaned-excel.xlsx            # Cleaned programmatically using Excel
 │
 ├── scripts/
 │   └── messy.ipynb            # Full pandas cleaning code
