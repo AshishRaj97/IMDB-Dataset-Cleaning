@@ -1,71 +1,67 @@
-# IMDB-Dataset-Cleaning
+# IMDb Dataset Cleaning: Excel and Pandas
 
-This repository contains the full data cleaning process applied to a messy IMDB dataset.  
-The cleaning has been performed **separately using both Excel and Pandas**, demonstrating data wrangling skills in both manual and programmatic environments.
+A data-cleaning exercise using a messy IMDb dataset, with two separate workflows: one in Microsoft Excel and another in Python with Pandas.
 
-### Why This Project?
-- Demonstrates ability to handle messy real-world datasets.
-- Shows both manual data wrangling (Excel) and programmatic data cleaning (Python).
-- Prepares clean dataset ready for EDA, visualization, or machine learning.
+The purpose is to show how inconsistent formats, missing values, and invalid entries can be identified and handled before exploratory analysis.
 
-## Project Structure
+## Project structure
 
-```bash
+~~~text
 IMDB-Dataset-Cleaning/
-│
 ├── raw_data/
-│   └── messy_IMDB_dataset.csv           # Original messy dataset
-│
+│   └── messy_IMDB_dataset.csv
 ├── cleaned_data/
-│   ├── Cleaned-csv.csv             # Cleaned manually using Pandas
-│   └── Cleaned-excel.xlsx            # Cleaned programmatically using Excel
-│
+│   ├── Cleaned-csv.csv
+│   └── Cleaned-excel.xlsx
 ├── scripts/
-│   └── messy.ipynb            # Full pandas cleaning code
-│
-└── README.md                            # Project documentation
-```
+│   └── messy.ipynb
+└── README.md
+~~~
 
-### Excel Cleaning
+## Cleaning workflow
 
-- Corrected column names and removed any special characters or extra spaces.
-- Standardized formats of incorrectly formatted columns:
-  - Converted `INCOME` and `VOTES` columns to numeric by removing `$`, `,`, and `.` separators.
-  - Converted `Duration` column into proper `hr:min:sec` format.
-  - Adjusted `RELEASE YEAR` formats where possible.
-- Handled missing values using Excel formulas:
-  - Used `MEAN` (AVERAGE) function to fill missing `SCORE` values.
-  - Used `MEAN` function to fill missing `DURATION` values.
-  - Used `MODE` function wherever applicable for categorical columns.
-  - Manually verified and corrected rows with invalid entries.
-- Saved fully cleaned dataset into `Cleaned-excel.xlsx`.
+### Excel
 
-### Pandas Cleaning
-- Loaded data using:
-  - pd.read_csv() with custom delimiter (;) and encoding (ISO-8859-1).
-- Removed special characters ($, ,, .) from fields like INCOME and VOTES.
-- Converted columns to appropriate numeric types using pd.to_numeric().
-- Converted RELEASE YEAR to datetime using pd.to_datetime() with error handling.
-- Handled missing values:
-- Filled missing SCORE with column mean.
-- Filled missing DURATION with column mean (rounded to 1 decimal place).
-- Manually fixed specific corrupted rows using iloc.
-- Exported cleaned file as CSV.
+- Standardizing column names and removing unwanted spaces or characters.
+- Cleaning numeric fields such as income and votes.
+- Standardizing duration and release-year formats where possible.
+- Handling missing values with spreadsheet formulas.
+- Reviewing and correcting selected invalid records.
+- Exporting the cleaned result to an Excel workbook.
 
-### Tools & Technologies Used
-- Excel — Manual cleaning, formulas, formatting.
-- Python — Programmatic cleaning.
-  - pandas
-  - numpy
-- Jupyter Notebook — For step-by-step cleaning & visualization.
-- Git & GitHub — Version control and hosting.
+### Python and Pandas
 
-### **Clone the repository**
-   ```bash
-   git clone https://github.com/AshishRaj97/IMDB-Dataset-Cleaning.git
-   cd IMDB-Dataset-Cleaning
-   ```
+- Reading a semicolon-delimited CSV with an explicit encoding.
+- Removing unwanted symbols from numeric fields.
+- Converting columns with pandas.to_numeric().
+- Parsing release-year values with pandas.to_datetime() and error handling.
+- Handling missing score and duration values.
+- Reviewing selected corrupted rows.
+- Exporting the cleaned dataset to CSV.
 
-##  Author
-- **Ashish Raj**
-- [LinkedIn](https://in.linkedin.com/in/ashish-raj-327596306)
+## Tools used
+
+- Microsoft Excel
+- Python
+- Pandas
+- NumPy
+- Jupyter Notebook
+
+## Run the notebook
+
+~~~bash
+git clone https://github.com/AshishRaj97/IMDB-Dataset-Cleaning.git
+cd IMDB-Dataset-Cleaning
+pip install pandas numpy jupyter
+jupyter notebook
+~~~
+
+Open scripts/messy.ipynb and update the input and output paths if your local folder structure differs.
+
+## Data quality note
+
+Imputation choices can affect downstream analysis. Mean imputation is used in parts of this exercise for numeric columns, but it is not always the best choice: the distribution, missingness mechanism, and purpose of the analysis should be considered before selecting an imputation strategy.
+
+## Author
+
+**Ashish Raj** · [GitHub](https://github.com/AshishRaj97) · [LinkedIn](https://www.linkedin.com/in/ashish-raj-327596306/)
